@@ -1,6 +1,6 @@
 package co.th.goldworld.goldtracking.cash.inventory;
 
-import co.th.goldworld.goldtracking.cash.CashItems;
+import co.th.goldworld.goldtracking.cash.item.CashItems;
 import co.th.goldworld.goldtracking.cash.summary.CashSummary;
 import co.th.goldworld.goldtracking.cash.summary.CashSummaryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class CashInventoryService {
         cashInventory.setTransferId(transferId);
         cashInventory.setCashItems(cashItems);
         cashInventoryRepository.save(cashInventory);
-        CashSummary cashSummary = cashSummaryRepository.findFirstByIdOrderByCreatedDateDesc();
+        CashSummary cashSummary = cashSummaryRepository.findFirstOrderById();
         //update summary for report
         cashItems.forEach(i->{
             if(i.getCurrency().equals("THB")) {
@@ -43,7 +43,7 @@ public class CashInventoryService {
         cashInventory.setTransferId(transferId);
         cashInventory.setCashItems(cashItems);
         cashInventoryRepository.save(cashInventory);
-        CashSummary cashSummary = cashSummaryRepository.findFirstByIdOrderByCreatedDateDesc();
+        CashSummary cashSummary = cashSummaryRepository.findFirstOrderById();
         //update summary for report
         cashItems.forEach(i->{
             if(i.getCurrency().equals("THB")) {

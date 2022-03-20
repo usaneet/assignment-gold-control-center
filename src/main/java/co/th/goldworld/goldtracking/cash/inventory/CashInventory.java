@@ -1,6 +1,6 @@
 package co.th.goldworld.goldtracking.cash.inventory;
 
-import co.th.goldworld.goldtracking.cash.CashItems;
+import co.th.goldworld.goldtracking.cash.item.CashItems;
 import lombok.Data;
 
 import javax.persistence.*;

@@ -1,13 +1,12 @@
 package co.th.goldworld.goldtracking.transfer;
 
-import co.th.goldworld.goldtracking.cash.CashItems;
+import co.th.goldworld.goldtracking.cash.item.CashItems;
 import co.th.goldworld.goldtracking.delivery.Delivery;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.List;
-import java.util.UUID;
 
 @Data
 @Entity
@@ -36,7 +35,9 @@ public class TransferRecord {
     private int receiveByUserId;
     private ZonedDateTime confirmDate;
     private int confirmByUserId;
-    private List<CashItems> cashItems;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<TransferCashItems> cashItems;
 
     @OneToOne
     private Delivery delivery;

@@ -10,6 +10,6 @@ public class CashSummaryService {
     CashSummaryRepository cashSummaryRepository;
 
     public CashSummary getCashSummary(){
-        return cashSummaryRepository.findFirstByIdOrderByCreatedDateDesc();
+        return cashSummaryRepository.findFirstOrderById();
     }
 }
