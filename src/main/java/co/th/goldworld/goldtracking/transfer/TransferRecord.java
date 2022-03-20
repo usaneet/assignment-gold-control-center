@@ -3,14 +3,14 @@ package co.th.goldworld.goldtracking.transfer;
 import co.th.goldworld.goldtracking.cash.CashItems;
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.UUID;
 
 @Data
+@Entity
+@Table(name = "transfer_record")
 public class TransferRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
