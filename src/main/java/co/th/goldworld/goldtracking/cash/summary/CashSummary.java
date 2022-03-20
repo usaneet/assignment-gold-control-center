@@ -14,8 +14,8 @@ public class CashSummary {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
     private ZonedDateTime createdDate;
-    private BigDecimal thb;
-    private BigDecimal usd;
-    private BigDecimal eur;
-    private BigDecimal aud;
+    private BigDecimal THB;
+    private BigDecimal USD;
+    private BigDecimal EUR;
+    private BigDecimal AUD;
 }

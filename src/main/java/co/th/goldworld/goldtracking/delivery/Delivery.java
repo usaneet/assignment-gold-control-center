@@ -4,6 +4,7 @@ import co.th.goldworld.goldtracking.delivery.tracking.TrackingLocation;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 @Data
@@ -18,6 +19,8 @@ public class Delivery {
     private String transportationId; //Car Registration
     private String trackingDeviceId;
     private String routeId; //central, north, south, west if any
+    private ZonedDateTime startDate;
+    private ZonedDateTime finishDate;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<TrackingLocation> locationList;

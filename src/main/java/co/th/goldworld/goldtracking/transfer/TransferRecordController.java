@@ -21,9 +21,9 @@ public class TransferRecordController {
         return transferRecordService.createTransferRecord(transferRecord);
     }
 
-    @PutMapping("/{id}")
-    public TransferRecord updateTransferRecord(@PathVariable("id") final Long id,@RequestBody TransferRecord transferRecord){
-        transferRecord.setId(id);
+    @PutMapping("/{code}")
+    public TransferRecord updateTransferRecord(@PathVariable("code") final String code,@RequestBody TransferRecord transferRecord){
+        transferRecord = transferRecordService.getTransferRecordByCode(code);
         return transferRecordService.updateTransferRecord(transferRecord);
     }
 
@@ -32,19 +32,20 @@ public class TransferRecordController {
         return transferRecordService.getTransferRecord(id);
     }
 
-    @PostMapping("/{id}/checkout")
-    public void checkoutTransferRecord(@PathVariable("id") final Long id){
-        transferRecordService.checkoutTransferRecord(id);
+    /*
+    Called by GSeller system
+     */
+    @PostMapping("/{code}/receive")
+    public void receiveTransferRecord(@PathVariable("code") final String code, @RequestBody Integer employeeId){
+        transferRecordService.receiveTransferRecord(code,employeeId);
     }
 
-    @PostMapping("/{id}/receive")
-    public void receiveTransferRecord(@PathVariable("id") final Long id, @RequestBody Integer employeeId){
-        transferRecordService.receiveTransferRecord(id,employeeId);
-    }
-
-    @PostMapping("/{id}/confirm")
-    public void confirmTransferRecord(@PathVariable("id") final Long id, @RequestBody Integer employeeId){
-        transferRecordService.confirmTransferRecord(id,employeeId);
+    /*
+    Called by GSeller system
+     */
+    @PostMapping("/{code}/confirm")
+    public void confirmTransferRecord(@PathVariable("code") final String code, @RequestBody Integer employeeId){
+        transferRecordService.confirmTransferRecord(code,employeeId);
     }
 
     @GetMapping("/{id}/print")

@@ -10,5 +10,5 @@ public class CashItems {
     @Enumerated(EnumType.STRING)
     private CurrencyEnum currency;
     private String unitKey; // note_1000, note_500, note_100, note_20, coin_10, coin_5
-    private String amount; //1000
+    private int amount; //1000
 }

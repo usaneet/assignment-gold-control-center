@@ -30,6 +30,8 @@ public class TransferRecord {
     private String secureBoxId;
     private ZonedDateTime deliveryDate;
     private int deliveryByUserId;
+    private ZonedDateTime arrivedDate;
+    private int arrivedByUserId;
     private ZonedDateTime receiveDate;
     private int receiveByUserId;
     private ZonedDateTime confirmDate;
@@ -37,5 +39,5 @@ public class TransferRecord {
     private List<CashItems> cashItems;
 
     @OneToOne
-    private Delivery deliveryId;
+    private Delivery delivery;
 }

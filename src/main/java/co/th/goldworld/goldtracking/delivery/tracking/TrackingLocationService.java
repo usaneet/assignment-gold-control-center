@@ -22,6 +22,10 @@ public class TrackingLocationService {
     }
 
     public List<TrackingLocation> getLocationTracking(Delivery delivery){
-        return locationRepository.findByDeliveryId();
+        return locationRepository.findByDeliveryId(delivery.getId());
+    }
+
+    public List<TrackingLocation> getAllLocationTracking(Delivery delivery){
+        return locationRepository.findByDeliveryId(delivery.getId());
     }
 }
