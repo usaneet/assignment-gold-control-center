@@ -13,8 +13,8 @@ public class Delivery {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
-    private String mobileId;
-    private String driverId; //employee Id
+    private String mobileDeviceId;
+    private int driverId; //employee Id
     private String transportationId; //Car Registration
     private String trackingDeviceId;
     private String routeId; //central, north, south, west if any
