@@ -1,6 +1,7 @@
 package co.th.goldworld.goldtracking.transfer;
 
 import co.th.goldworld.goldtracking.cash.CashItems;
+import co.th.goldworld.goldtracking.delivery.Delivery;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,24 +16,26 @@ public class TransferRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String code = UUID.randomUUID().toString();
+    private String code;
     private String issuerSystem;
     private int createByUserId;
-    private ZonedDateTime createdDate;
+    private ZonedDateTime createdDate = ZonedDateTime.now();
     private int modifyByUserId;
-    private ZonedDateTime modifiedDate;
+    private ZonedDateTime modifiedDate = ZonedDateTime.now();
     private ZonedDateTime printedDate;
     private int sourceBranchId;
     private String sourceBranchAddress;
     private int destinationBranchId;
     private String destinationBranchAddress;
     private String secureBoxId;
-    private String deliveryId;
     private ZonedDateTime deliveryDate;
-    private String deliveryByUserId;
+    private int deliveryByUserId;
     private ZonedDateTime receiveDate;
-    private String receiveByUserId;
+    private int receiveByUserId;
     private ZonedDateTime confirmDate;
-    private String confirmByUserId;
+    private int confirmByUserId;
     private List<CashItems> cashItems;
+
+    @OneToOne
+    private Delivery deliveryId;
 }
